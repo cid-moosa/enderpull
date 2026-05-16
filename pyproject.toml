@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mc-dl"
+version = "0.1.0"
+description = "A blazing fast CLI for downloading Minecraft mods."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "requests>=2.31.0",
+    "rich>=13.7.0"
+]
+
+[project.scripts]
+mc-dl = "enderpull.cli:main"
