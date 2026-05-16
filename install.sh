@@ -39,22 +39,7 @@ echo -n -e "[ ${CYAN}WORKING${RESET} ] 📥  Downloading dependencies and cachin
 spinner $!
 echo -e "\r[ ${GREEN}SUCCESS${RESET} ] 📥  Downloading dependencies and caching files... "
 
-echo -n -e "[ ${CYAN}WORKING${RESET} ] 🪄  Generating launch script and cleaning up... "
-cat << 'EOF' > launch.sh
-#!/bin/bash
-# Start an interactive bash shell with the virtual environment activated
-exec bash --rcfile <(echo '
-if [ -f ~/.bashrc ]; then source ~/.bashrc; fi
-source venv/bin/activate
-clear
-mc-dl --help
-')
-EOF
-chmod +x launch.sh
-
-rm -f requirements.txt README.md .gitignore install.bat
-sleep 1
-echo -e "\r[ ${GREEN}SUCCESS${RESET} ] 🪄  Generating launch script and cleaning up... "
+rm -f requirements.txt README.md .gitignore
 
 sleep 1
 clear
@@ -64,6 +49,5 @@ echo "--------------------------------------------------"
 echo -e "${YELLOW}Transitioning to your interactive modding terminal...${RESET}"
 sleep 3
 
-# This removes the installer and replaces the current shell with the new interactive shell
-rm -f "$0"
+chmod +x launch.sh
 exec ./launch.sh
