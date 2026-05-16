@@ -42,7 +42,13 @@ echo -e "\r[ ${GREEN}SUCCESS${RESET} ] 📥  Downloading dependencies and cachin
 echo -n -e "[ ${CYAN}WORKING${RESET} ] 🪄  Generating launch script and cleaning up... "
 cat << 'EOF' > launch.sh
 #!/bin/bash
-venv/bin/python3 -m enderpull "$@"
+# Start an interactive bash shell with the virtual environment activated
+exec bash --rcfile <(echo '
+if [ -f ~/.bashrc ]; then source ~/.bashrc; fi
+source venv/bin/activate
+clear
+mc-dl --help
+')
 EOF
 chmod +x launch.sh
 
@@ -54,12 +60,11 @@ sleep 1
 clear
 
 echo -e "${GREEN}${BOLD}[ SUCCESS ]${RESET} 🎉 EnderPull Installed Successfully!"
-echo -e "${CYAN}==============================================${RESET}"
-echo
+echo "--------------------------------------------------"
+echo -e "${YELLOW}Launching your automated modding terminal now...${RESET}"
+sleep 3
 
-./launch.sh --help
-
-echo
-read -p "Press [Enter] to close..."
+# Launch the interactive terminal replacement
+./launch.sh
 
 rm -- "$0"
