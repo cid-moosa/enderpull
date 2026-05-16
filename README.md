@@ -20,11 +20,16 @@ EnderPull is a professional-grade command-line interface inspired by tools like 
    cd enderpull
    ```
 2. Create and activate a virtual environment (recommended):
-   ```bash
+
+   **On Windows:**
+   ```powershell
    python -m venv venv
-   # On Windows:
    .\venv\Scripts\activate
-   # On macOS/Linux:
+   ```
+
+   **On macOS/Linux:**
+   ```bash
+   python3 -m venv venv
    source venv/bin/activate
    ```
 3. Install the package in editable mode:
