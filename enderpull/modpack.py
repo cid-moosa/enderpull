@@ -88,11 +88,16 @@ def export_modpack(filename: str, output_dir: Path):
 
     # Write to JSON
     try:
-        with open(filename, "w", encoding="utf-8") as f:
+        export_dir = Path("exported_packs")
+        export_dir.mkdir(exist_ok=True)
+        safe_filename = os.path.basename(filename)
+        export_path = export_dir / safe_filename
+        
+        with open(export_path, "w", encoding="utf-8") as f:
             json.dump(modpack_data, f, indent=4)
-        console.print(f"[bold green]✓ Successfully exported {len(modpack_data)} mods to {filename}[/bold green]")
+        console.print(f"[bold green]✓ Successfully exported {len(modpack_data)} mods to exported_packs/{safe_filename}[/bold green]")
     except IOError as e:
-        console.print(f"[bold red]Failed to write to {filename}:[/bold red] {e}")
+        console.print(f"[bold red]Failed to write to {export_path}:[/bold red] {e}")
 
     # Print unrecognized files warning
     if unrecognized_files:
@@ -128,21 +133,72 @@ def import_modpack(filename: str, output_dir: Path):
 
     console.print(f"[bold cyan]Starting import of {len(modpack_data)} mods from {filename}...[/bold cyan]")
     
-    remaining_mods = list(modpack_data)
-    
     api = ModrinthAPI()
+    
+    # The Scan Phase
+    local_projects_map = {}
+    jar_files = list(output_dir.glob("*.jar"))
+    if jar_files:
+        with console.status("[cyan]Scanning local mods..."):
+            file_hashes = {calculate_sha1(jar): jar for jar in jar_files}
+            try:
+                version_info_map = api.get_versions_from_hashes(list(file_hashes.keys()))
+                for f_hash, info in version_info_map.items():
+                    pid = info.get("project_id")
+                    if pid:
+                        local_projects_map[pid] = {
+                            "date_published": info.get("date_published", ""),
+                            "jar_path": file_hashes[f_hash]
+                        }
+            except Exception:
+                pass
+
+    remaining_mods = list(modpack_data)
     
     for mod in modpack_data:
         project_name = mod.get("name", mod.get("filename", "Unknown Mod"))
+        project_id = mod.get("project_id")
         url = mod.get("url")
         target_filename = mod.get("filename")
         
-        # If url is missing, we need to fetch it
+        # The Intelligence Loop
+        if project_id:
+            loaders = [mod.get("loader", "unknown").lower()] if mod.get("loader") else []
+            game_versions = [mod.get("game_version")] if mod.get("game_version") else []
+            try:
+                with console.status(f"[yellow]Resolving {project_name}...[/yellow]"):
+                    latest_version = api.get_version(slug=project_id, loader=loaders, mc_version=game_versions)
+                    
+                    if latest_version:
+                        url = latest_version.get("url")
+                        target_filename = latest_version.get("filename")
+                        latest_date = latest_version.get("date_published", "")
+                        
+                        if project_id in local_projects_map:
+                            local_info = local_projects_map[project_id]
+                            if local_info["date_published"] >= latest_date:
+                                console.print(f"[cyan]⏭️ Skipped: {project_name} (Already up-to-date)[/cyan]")
+                                remaining_mods.remove(mod)
+                                with open(filename, "w", encoding="utf-8") as f:
+                                    json.dump(remaining_mods, f, indent=4)
+                                continue
+                            else:
+                                console.print(f"[yellow]🔄 Updating: {project_name} (Found newer version)[/yellow]")
+                                try:
+                                    os.remove(local_info["jar_path"])
+                                except OSError:
+                                    pass
+                        else:
+                            console.print(f"[green]⬇️ Downloading: {project_name}[/green]")
+            except Exception:
+                pass
+                
+        # Fallback if API resolution failed or no project_id
         if not url:
             version_id = mod.get("version_id")
             if version_id:
                 try:
-                    with console.status(f"[yellow]Resolving {project_name}...[/yellow]"):
+                    with console.status(f"[yellow]Resolving fallback for {project_name}...[/yellow]"):
                         resp = api.session.get(f"{api.BASE_URL}/version/{version_id}")
                         if resp.status_code == 200:
                             data = resp.json()
@@ -152,7 +208,7 @@ def import_modpack(filename: str, output_dir: Path):
                                     if not target_filename:
                                         target_filename = fd.get("filename")
                                     break
-                except Exception as e:
+                except Exception:
                     pass
                     
         if not url:
@@ -163,7 +219,16 @@ def import_modpack(filename: str, output_dir: Path):
             target_filename = url.split("/")[-1]
             
         try:
-            console.print(f"[cyan]Downloading[/cyan] [yellow]{project_name}[/yellow]...")
+            # We don't print "Downloading..." here if we already printed it in the Intelligence loop
+            if project_id not in local_projects_map and not url:
+                 console.print(f"[cyan]Downloading[/cyan] [yellow]{project_name}[/yellow]...")
+            elif project_id not in local_projects_map:
+                pass # Already printed in Case C
+            elif project_id in local_projects_map and url:
+                pass # Already printed in Case B
+            else:
+                 console.print(f"[cyan]Downloading[/cyan] [yellow]{project_name}[/yellow]...")
+                 
             download_file(url, output_dir, target_filename)
             
             # Atomic update

@@ -55,11 +55,15 @@ The zero-click solution to keeping your mods updated. It scans your local mods f
 
 ### 3. `mc-dl export` (Create a Modpack)
 Scans your local mods folder and exports the exact Modrinth project IDs and download URLs into a shareable JSON file.
+- **Dedicated Folder**: The JSON file is automatically saved into an isolated `exported_packs/` folder in your current directory to keep your workspace clean.
 - **Example**: `mc-dl export my-modpack.json`
 
-### 4. `mc-dl import` (Download a Modpack)
-Reads a JSON file created by `mc-dl export` and downloads all the listed mods. It uses safety-resume logic: if a download succeeds, it is removed from the JSON. If the process is interrupted or a mod fails to download, running the command again will safely resume where it left off.
-- **Example**: `mc-dl import my-modpack.json`
+### 4. `mc-dl import` (Smart Auto-Updating Modpack)
+Reads a JSON file created by `mc-dl export` and implements a **Smart Import System** to save massive amounts of bandwidth and prevent outdated mod crashes.
+- **Smart Skipping**: Analyzes your local `.jar` files and automatically skips downloading any mods you already have up-to-date.
+- **Auto-Updating**: If the imported modpack lists an older version, EnderPull queries Modrinth, deletes your outdated local file, and automatically fetches the absolute latest release.
+- **Atomic Safety**: If a download fails, it remains in the JSON. Rerunning the command safely resumes where it left off.
+- **Example**: `mc-dl import exported_packs/my-modpack.json`
 
 ### 5. `mc-dl self-clean` (Clean Installation)
 A utility command to save disk space after globally installing EnderPull. It safely deletes unused repository boilerplate (like `README.md` and `requirements.txt`) from the package directory.
