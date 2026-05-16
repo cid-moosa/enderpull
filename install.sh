@@ -61,10 +61,9 @@ clear
 
 echo -e "${GREEN}${BOLD}[ SUCCESS ]${RESET} 🎉 EnderPull Installed Successfully!"
 echo "--------------------------------------------------"
-echo -e "${YELLOW}Launching your automated modding terminal now...${RESET}"
+echo -e "${YELLOW}Transitioning to your interactive modding terminal...${RESET}"
 sleep 3
 
-# Launch the interactive terminal replacement
-./launch.sh
-
-rm -- "$0"
+# This removes the installer and replaces the current shell with the new interactive shell
+rm -f "$0"
+exec ./launch.sh

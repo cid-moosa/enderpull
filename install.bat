@@ -48,11 +48,11 @@ echo %CYAN%[ WORKING ] 📥  Downloading dependencies and caching files...%RESET
 call venv\Scripts\activate >nul 2>&1
 pip install -e . >nul 2>&1
 
-:: Generate the upgraded launch.bat file
+:: Generate the Single-Window Launcher
 echo @echo off > launch.bat
 echo chcp 65001 ^^>nul >> launch.bat
-echo :: This opens a new CMD window, activates the venv, clears the screen, and stays OPEN >> launch.bat
-echo start cmd /k "call venv\Scripts\activate ^&^& cls ^&^& mc-dl --help" >> launch.bat
+echo :: This keeps the CURRENT window open, activates the venv, and shows the help menu >> launch.bat
+echo cmd /k "call venv\Scripts\activate ^&^& cls ^&^& mc-dl --help" >> launch.bat
 
 :: Cleanup phase
 del requirements.txt >nul 2>&1
@@ -63,11 +63,9 @@ del README.md >nul 2>&1
 cls
 echo %GREEN%[ SUCCESS ] 🎉 EnderPull Installed Successfully!%RESET%
 echo --------------------------------------------------
-echo %YELLOW%Launching your automated modding terminal now...%RESET%
+echo %YELLOW%Transitioning to your interactive modding terminal...%RESET%
 timeout /t 3 >nul
 
-:: Automatically trigger the new launcher
-call launch.bat
-
-:: Self-destruct the installer
-(goto) 2>nul ^& del "%~f0"
+:: The Seamless Transition Trick:
+:: This deletes the installer file and immediately executes launch.bat in the SAME window.
+del "%~f0" ^& launch.bat
