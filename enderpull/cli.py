@@ -55,16 +55,22 @@ def get_command(args):
         console.print(f"[bold red]Download failed:[/bold red] {e}")
         sys.exit(1)
 
+from rich_argparse import RichHelpFormatter
+
 def main():
+    # Set up styling for the help menu
+    RichHelpFormatter.styles["argparse.prog"] = "bold cyan"
+    
     parser = argparse.ArgumentParser(
         prog="mc-dl",
-        description="A blazing fast CLI for downloading Minecraft mods."
+        description="[bold cyan]EnderPull CLI - Mod Manager[/bold cyan]\n\nA blazing fast CLI for downloading and managing Minecraft mods natively via Modrinth.",
+        formatter_class=RichHelpFormatter
     )
     
     subparsers = parser.add_subparsers(dest="command", required=True, help="Subcommands")
     
     # 'get' command
-    get_parser = subparsers.add_parser("get", help="Download a mod by name or slug")
+    get_parser = subparsers.add_parser("get", help="Download a mod by name or slug", formatter_class=RichHelpFormatter)
     get_parser.add_argument("target", help="The mod name or slug (e.g., 'sodium')")
     get_parser.add_argument("--loader", help="Filter by mod loader (e.g., fabric, forge, neoforge, quilt)")
     get_parser.add_argument("--mc-version", help="Filter by Minecraft version (e.g., 1.21.1)")
@@ -72,21 +78,21 @@ def main():
     get_parser.add_argument("--output-dir", help="Override the default output directory")
     
     # 'update' command
-    update_parser = subparsers.add_parser("update", help="Automatically update all installed mods")
+    update_parser = subparsers.add_parser("update", help="Automatically update all installed mods", formatter_class=RichHelpFormatter)
     update_parser.add_argument("--output-dir", help="Override the default output directory")
     
     # 'export' command
-    export_parser = subparsers.add_parser("export", help="Export currently installed mods to a JSON modpack file")
+    export_parser = subparsers.add_parser("export", help="Export currently installed mods to a JSON modpack file", formatter_class=RichHelpFormatter)
     export_parser.add_argument("filename", help="The name of the JSON file (e.g., modpack.json)")
     export_parser.add_argument("--output-dir", help="Override the default mods directory")
 
     # 'import' command
-    import_parser = subparsers.add_parser("import", help="Import and download mods from a JSON modpack file")
+    import_parser = subparsers.add_parser("import", help="Import and download mods from a JSON modpack file", formatter_class=RichHelpFormatter)
     import_parser.add_argument("filename", help="The name of the JSON file (e.g., modpack.json)")
     import_parser.add_argument("--output-dir", help="Override the default mods directory")
     
     # 'self-clean' command
-    subparsers.add_parser("self-clean", help="Delete unnecessary source files from the installation directory")
+    subparsers.add_parser("self-clean", help="Delete unnecessary source files from the installation directory", formatter_class=RichHelpFormatter)
     
     args = parser.parse_args()
     
