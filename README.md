@@ -20,23 +20,21 @@ EnderPull is a professional-grade command-line interface inspired by tools like 
    git clone https://github.com/YOUR_USERNAME/enderpull.git
    cd enderpull
    ```
-2. Create and activate a virtual environment (recommended):
+2. Run the 1-click installer for your operating system:
 
    **On Windows:**
+   Simply double-click the `install.bat` file, or run it in your terminal:
    ```powershell
-   python -m venv venv
-   .\venv\Scripts\activate
+   .\install.bat
    ```
 
    **On macOS/Linux:**
+   Run the installation script in your terminal:
    ```bash
-   python3 -m venv venv
-   source venv/bin/activate
+   bash install.sh
    ```
-3. Install the package in editable mode:
-   ```bash
-   pip install -e .
-   ```
+
+That's it! The script will automatically create a virtual environment, install EnderPull, and register the `mc-dl` command so you can use it immediately.
 
 ## 📖 Command Reference
 
