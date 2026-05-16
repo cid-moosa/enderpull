@@ -1,0 +1,632 @@
+[
+    {
+        "name": "Auto Elytra - 1.2.1",
+        "project_id": "83Rrc2aK",
+        "version_id": "1Mw1CmmB",
+        "loader": "Fabric",
+        "game_version": "1.21",
+        "filename": "AE_F21_1.2.1.jar",
+        "url": "https://cdn.modrinth.com/data/83Rrc2aK/versions/1Mw1CmmB/AE_F21_1.2.1.jar"
+    },
+    {
+        "name": "[1.21.11 Fabric] Alternate Current 1.9.0",
+        "project_id": "r0v8vy1s",
+        "version_id": "XdouG8YV",
+        "loader": "Fabric",
+        "game_version": "1.21.11",
+        "filename": "alternate-current-mc1.21.11-1.9.0.jar",
+        "url": "https://cdn.modrinth.com/data/r0v8vy1s/versions/XdouG8YV/alternate-current-mc1.21.11-1.9.0.jar"
+    },
+    {
+        "name": "appleskin-fabric-mc1.21.11-3.0.8",
+        "project_id": "EsAfCjCV",
+        "version_id": "59ti1rvg",
+        "loader": "Fabric",
+        "game_version": "1.21.11",
+        "filename": "appleskin-fabric-mc1.21.11-3.0.8.jar",
+        "url": "https://cdn.modrinth.com/data/EsAfCjCV/versions/59ti1rvg/appleskin-fabric-mc1.21.11-3.0.8.jar"
+    },
+    {
+        "name": "[Fabric 1.21.11] v19.0.1",
+        "project_id": "lhGA9TYQ",
+        "version_id": "uNdfrcQ8",
+        "loader": "Fabric",
+        "game_version": "1.21.11",
+        "filename": "architectury-19.0.1-fabric.jar",
+        "url": "https://cdn.modrinth.com/data/lhGA9TYQ/versions/uNdfrcQ8/architectury-19.0.1-fabric.jar"
+    },
+    {
+        "name": "[Fabric] Auth Me v9.1.0+1.21.11",
+        "project_id": "yjgIrBjZ",
+        "version_id": "fmliMC7y",
+        "loader": "Fabric",
+        "game_version": "1.21.11",
+        "filename": "authme-fabric-9.1.0+1.21.11.jar",
+        "url": "https://cdn.modrinth.com/data/yjgIrBjZ/versions/fmliMC7y/authme-fabric-9.1.0%2B1.21.11.jar"
+    },
+    {
+        "name": "1.21.11 support",
+        "project_id": "npOjHmZP",
+        "version_id": "trfUlIfd",
+        "loader": "Fabric",
+        "game_version": "1.20.5",
+        "filename": "auto-enchanter-1.0.2.jar",
+        "url": "https://cdn.modrinth.com/data/npOjHmZP/versions/trfUlIfd/auto-enchanter-1.0.2.jar"
+    },
+    {
+        "name": "Silly's Auto Totem 1.2.4",
+        "project_id": "8DudH9k4",
+        "version_id": "YBTKIHGq",
+        "loader": "Fabric",
+        "game_version": "1.21.11",
+        "filename": "auto-totem-1.21.11-1.2.4.jar",
+        "url": "https://cdn.modrinth.com/data/8DudH9k4/versions/YBTKIHGq/auto-totem-1.21.11-1.2.4.jar"
+    },
+    {
+        "name": "1.0.0 Client-side only",
+        "project_id": "dfXDg5uR",
+        "version_id": "bCGWFTlV",
+        "loader": "Fabric",
+        "game_version": "1.21.11",
+        "filename": "autolapis-fabric-client-1.21.11-1.0.0-1.21.11.jar",
+        "url": "https://cdn.modrinth.com/data/dfXDg5uR/versions/bCGWFTlV/autolapis-fabric-client-1.21.11-1.0.0-1.21.11.jar"
+    },
+    {
+        "name": "Auto Lectern 1.0.28A",
+        "project_id": "V5ymEVfT",
+        "version_id": "mhQJaRug",
+        "loader": "Fabric",
+        "game_version": "1.21.11",
+        "filename": "autolec-mc1.21.11-1.0.28.jar",
+        "url": "https://cdn.modrinth.com/data/V5ymEVfT/versions/mhQJaRug/autolec-mc1.21.11-1.0.28.jar"
+    },
+    {
+        "name": "Auto Mace Swap 1.6-1.21.11",
+        "project_id": "LUITLgS7",
+        "version_id": "HO1gp8LS",
+        "loader": "Fabric",
+        "game_version": "1.21.11",
+        "filename": "AutoMaceSwap-1.6-1.21.11.jar",
+        "url": "https://cdn.modrinth.com/data/LUITLgS7/versions/HO1gp8LS/AutoMaceSwap-1.6-1.21.11.jar"
+    },
+    {
+        "name": "2.4.1 (1.21.11)",
+        "project_id": "g96Z4WVZ",
+        "version_id": "Q3Dusz2j",
+        "loader": "Fabric",
+        "game_version": "1.21.11",
+        "filename": "BadOptimizations-2.4.1-1.21.11.jar",
+        "url": "https://cdn.modrinth.com/data/g96Z4WVZ/versions/Q3Dusz2j/BadOptimizations-2.4.1-1.21.11.jar"
+    },
+    {
+        "name": "better-ping-display-fabric-1.21.11-1.2.0",
+        "project_id": "MS1ZMyR7",
+        "version_id": "HPJcBg0P",
+        "loader": "Fabric",
+        "game_version": "1.21.11",
+        "filename": "better-ping-display-fabric-1.21.11-1.2.0.jar",
+        "url": "https://cdn.modrinth.com/data/MS1ZMyR7/versions/HPJcBg0P/better-ping-display-fabric-1.21.11-1.2.0.jar"
+    },
+    {
+        "name": "BetterF3 Fabric v17.0.0 (1.21.11)",
+        "project_id": "8shC1gFX",
+        "version_id": "Qw1nhj7u",
+        "loader": "Fabric",
+        "game_version": "1.21.11",
+        "filename": "BetterF3-17.0.0-Fabric-1.21.11.jar",
+        "url": "https://cdn.modrinth.com/data/8shC1gFX/versions/Qw1nhj7u/BetterF3-17.0.0-Fabric-1.21.11.jar"
+    },
+    {
+        "name": "5.2.11+mc1.21.11",
+        "project_id": "M08ruV16",
+        "version_id": "y6wx9vV9",
+        "loader": "Fabric",
+        "game_version": "1.21.11",
+        "filename": "bobby-5.2.11+mc1.21.11.jar",
+        "url": "https://cdn.modrinth.com/data/M08ruV16/versions/y6wx9vV9/bobby-5.2.11%2Bmc1.21.11.jar"
+    },
+    {
+        "name": "7.3.1",
+        "project_id": "K01OU20C",
+        "version_id": "O2RJYZwD",
+        "loader": "Fabric",
+        "game_version": "1.21.11",
+        "filename": "cardinal-components-api-7.3.1.jar",
+        "url": "https://cdn.modrinth.com/data/K01OU20C/versions/O2RJYZwD/cardinal-components-api-7.3.1.jar"
+    },
+    {
+        "name": "Chunky 1.4.55",
+        "project_id": "fALzjamp",
+        "version_id": "1CpEkmcD",
+        "loader": "Fabric",
+        "game_version": "1.21.11",
+        "filename": "Chunky-Fabric-1.4.55.jar",
+        "url": "https://cdn.modrinth.com/data/fALzjamp/versions/1CpEkmcD/Chunky-Fabric-1.4.55.jar"
+    },
+    {
+        "name": "0.14.3 for 1.21.9 to 1.21.10",
+        "project_id": "IwCkru1D",
+        "version_id": "CqAskfnS",
+        "loader": "Fabric",
+        "game_version": "1.21.9",
+        "filename": "cicada-lib-0.14.3+1.21.9-1.21.10.jar",
+        "url": "https://cdn.modrinth.com/data/IwCkru1D/versions/CqAskfnS/cicada-lib-0.14.3%2B1.21.9-1.21.10.jar"
+    },
+    {
+        "name": "[Fabric 1.21.11] v21.11.153",
+        "project_id": "9s6osm5g",
+        "version_id": "xuX40TN5",
+        "loader": "Fabric",
+        "game_version": "1.21.11",
+        "filename": "cloth-config-21.11.153-fabric.jar",
+        "url": "https://cdn.modrinth.com/data/9s6osm5g/versions/xuX40TN5/cloth-config-21.11.153-fabric.jar"
+    },
+    {
+        "name": "Fabric-1.21.11-29.0.0.1",
+        "project_id": "Wnxd13zP",
+        "version_id": "OgBE8Rz4",
+        "loader": "Fabric",
+        "game_version": "1.21.11",
+        "filename": "Clumps-fabric-1.21.11-29.0.0.1.jar",
+        "url": "https://cdn.modrinth.com/data/Wnxd13zP/versions/OgBE8Rz4/Clumps-fabric-1.21.11-29.0.0.1.jar"
+    },
+    {
+        "name": "[Fabric/Forge/Neo] 1.21.11-8.22",
+        "project_id": "e0M1UDsY",
+        "version_id": "6EPDFSpU",
+        "loader": "Fabric",
+        "game_version": "1.21.11",
+        "filename": "collective-1.21.11-8.22.jar",
+        "url": "https://cdn.modrinth.com/data/e0M1UDsY/versions/6EPDFSpU/collective-1.21.11-8.22.jar"
+    },
+    {
+        "name": "Debugify 1.21.11+1.1",
+        "project_id": "QwxR6Gcd",
+        "version_id": "xVevtAGn",
+        "loader": "Fabric",
+        "game_version": "1.21.11",
+        "filename": "debugify-1.21.11+1.1.jar",
+        "url": "https://cdn.modrinth.com/data/QwxR6Gcd/versions/xVevtAGn/debugify-1.21.11%2B1.1.jar"
+    },
+    {
+        "name": "3.8.3 for Fabric 1.21.11",
+        "project_id": "6FtRfnLg",
+        "version_id": "QyuEXDMC",
+        "loader": "Fabric",
+        "game_version": "1.21.11",
+        "filename": "do_a_barrel_roll-fabric-3.8.3+1.21.11.jar",
+        "url": "https://cdn.modrinth.com/data/6FtRfnLg/versions/QyuEXDMC/do_a_barrel_roll-fabric-3.8.3%2B1.21.11.jar"
+    },
+    {
+        "name": "v3.11.6",
+        "project_id": "LQ3K71Q1",
+        "version_id": "Fab7e5Th",
+        "loader": "Fabric",
+        "game_version": "1.21.11",
+        "filename": "dynamic-fps-3.11.6+minecraft-1.21.11-fabric.jar",
+        "url": "https://cdn.modrinth.com/data/LQ3K71Q1/versions/Fab7e5Th/dynamic-fps-3.11.6%2Bminecraft-1.21.11-fabric.jar"
+    },
+    {
+        "name": "2.1.1-1.21.11 - Fabric",
+        "project_id": "DynYZEae",
+        "version_id": "pZAsvm42",
+        "loader": "Fabric",
+        "game_version": "1.21.11",
+        "filename": "exordium-fabric-2.1.1-mc1.21.11.jar",
+        "url": "https://cdn.modrinth.com/data/DynYZEae/versions/pZAsvm42/exordium-fabric-2.1.1-mc1.21.11.jar"
+    },
+    {
+        "name": "Fabric Language Kotlin 1.13.11+kotlin.2.3.21",
+        "project_id": "Ha28R6CL",
+        "version_id": "2i87JpYj",
+        "loader": "Fabric",
+        "game_version": "1.14",
+        "filename": "fabric-language-kotlin-1.13.11+kotlin.2.3.21.jar",
+        "url": "https://cdn.modrinth.com/data/Ha28R6CL/versions/2i87JpYj/fabric-language-kotlin-1.13.11%2Bkotlin.2.3.21.jar"
+    },
+    {
+        "name": "FastChest 1.6+1.21.9",
+        "project_id": "WNcgffMw",
+        "version_id": "hdsq0jtV",
+        "loader": "Fabric",
+        "game_version": "1.21.9",
+        "filename": "fast-chest-1.6+1.21.9.jar",
+        "url": "https://cdn.modrinth.com/data/WNcgffMw/versions/hdsq0jtV/fast-chest-1.6%2B1.21.9.jar"
+    },
+    {
+        "name": "3.1.3 - 1.21.11",
+        "project_id": "x1hIzbuY",
+        "version_id": "ip2tVKLp",
+        "loader": "Fabric",
+        "game_version": "1.21.11",
+        "filename": "fastquit-3.1.3+mc1.21.11.jar",
+        "url": "https://cdn.modrinth.com/data/x1hIzbuY/versions/ip2tVKLp/fastquit-3.1.3%2Bmc1.21.11.jar"
+    },
+    {
+        "name": "ferritecore-8.2.0-fabric",
+        "project_id": "uXXizFIs",
+        "version_id": "Ii0gP3D8",
+        "loader": "Fabric",
+        "game_version": "1.21.11",
+        "filename": "ferritecore-8.2.0-fabric.jar",
+        "url": "https://cdn.modrinth.com/data/uXXizFIs/versions/Ii0gP3D8/ferritecore-8.2.0-fabric.jar"
+    },
+    {
+        "name": "[FABRIC] [1.21.11] ForgeConfigAPIPort v21.11.1",
+        "project_id": "ohNO6lps",
+        "version_id": "uXrWPsCu",
+        "loader": "Fabric",
+        "game_version": "1.21.11",
+        "filename": "ForgeConfigAPIPort-v21.11.1-mc1.21.11-Fabric.jar",
+        "url": "https://cdn.modrinth.com/data/ohNO6lps/versions/uXrWPsCu/ForgeConfigAPIPort-v21.11.1-mc1.21.11-Fabric.jar"
+    },
+    {
+        "name": "Gamma Utils 2.5.10",
+        "project_id": "wdLuzzEP",
+        "version_id": "aVJkWMQl",
+        "loader": "Fabric",
+        "game_version": "1.21.11",
+        "filename": "Gamma-Utils-2.5.10+mc1.21.11.jar",
+        "url": "https://cdn.modrinth.com/data/wdLuzzEP/versions/aVJkWMQl/Gamma-Utils-2.5.10%2Bmc1.21.11.jar"
+    },
+    {
+        "name": "1.21.11-fabric-v1.3.2",
+        "project_id": "T0OUgf8P",
+        "version_id": "sBup7Uqc",
+        "loader": "Fabric",
+        "game_version": "1.21.11",
+        "filename": "getittogetherdrops-fabric-1.21.11-1.3.2.jar",
+        "url": "https://cdn.modrinth.com/data/T0OUgf8P/versions/sBup7Uqc/getittogetherdrops-fabric-1.21.11-1.3.2.jar"
+    },
+    {
+        "name": "IAS 9.0.6+1.21.11-fabric",
+        "project_id": "cudtvDnd",
+        "version_id": "YUbSyjUy",
+        "loader": "Fabric",
+        "game_version": "1.21.11",
+        "filename": "IAS-9.0.6+1.21.11-fabric.jar",
+        "url": "https://cdn.modrinth.com/data/cudtvDnd/versions/YUbSyjUy/IAS-9.0.6%2B1.21.11-fabric.jar"
+    },
+    {
+        "name": "[1.21.x] IdleTweaks 1.2.1",
+        "project_id": "Vnjlu1sC",
+        "version_id": "2lBMUSy4",
+        "loader": "Fabric",
+        "game_version": "1.21",
+        "filename": "IdleTweaks-1.2.1.jar",
+        "url": "https://cdn.modrinth.com/data/Vnjlu1sC/versions/2lBMUSy4/IdleTweaks-1.2.1.jar"
+    },
+    {
+        "name": "ImmediatelyFast 1.14.2",
+        "project_id": "5ZwdcRci",
+        "version_id": "QwkfUKSj",
+        "loader": "Fabric",
+        "game_version": "1.21.11",
+        "filename": "ImmediatelyFast-Fabric-1.14.2+1.21.11.jar",
+        "url": "https://cdn.modrinth.com/data/5ZwdcRci/versions/QwkfUKSj/ImmediatelyFast-Fabric-1.14.2%2B1.21.11.jar"
+    },
+    {
+        "name": "Indium 1.0.35 for Minecraft 1.21.x/Sodium 0.5.11",
+        "project_id": "Orvt0mRa",
+        "version_id": "Z8VpxxGh",
+        "loader": "Fabric",
+        "game_version": "1.21",
+        "filename": "indium-1.0.35+mc1.21.jar",
+        "url": "https://cdn.modrinth.com/data/Orvt0mRa/versions/Z8VpxxGh/indium-1.0.35%2Bmc1.21.jar"
+    },
+    {
+        "name": "InventoryHUD+ [Fabric-1.21.11] (v3.4.29)",
+        "project_id": "Kp2uclYl",
+        "version_id": "mZy4fW0C",
+        "loader": "Fabric",
+        "game_version": "1.21.11",
+        "filename": "inventoryhud.fabric.1.21.11-3.4.29.jar",
+        "url": "https://cdn.modrinth.com/data/Kp2uclYl/versions/mZy4fW0C/inventoryhud.fabric.1.21.11-3.4.29.jar"
+    },
+    {
+        "name": "Item Scroller 1.21.11-0.30.3",
+        "project_id": "JygyCSA4",
+        "version_id": "aMcHiG8j",
+        "loader": "Fabric",
+        "game_version": "1.21.11",
+        "filename": "itemscroller-fabric-1.21.11-0.30.3.jar",
+        "url": "https://cdn.modrinth.com/data/JygyCSA4/versions/aMcHiG8j/itemscroller-fabric-1.21.11-0.30.3.jar"
+    },
+    {
+        "name": "[Fabric 1.21.11] 21.1.6",
+        "project_id": "nvQzSEkH",
+        "version_id": "swJhAyak",
+        "loader": "Fabric",
+        "game_version": "1.21.11",
+        "filename": "Jade-1.21.11-Fabric-21.1.6.jar",
+        "url": "https://cdn.modrinth.com/data/nvQzSEkH/versions/swJhAyak/Jade-1.21.11-Fabric-21.1.6.jar"
+    },
+    {
+        "name": "Krypton 0.2.10",
+        "project_id": "fQEb0iXm",
+        "version_id": "O9LmWYR7",
+        "loader": "Fabric",
+        "game_version": "1.21.9",
+        "filename": "krypton-0.2.10.jar",
+        "url": "https://cdn.modrinth.com/data/fQEb0iXm/versions/O9LmWYR7/krypton-0.2.10.jar"
+    },
+    {
+        "name": "LambDynamicLights 4.9.1 (1.21.11)",
+        "project_id": "yBW8D80W",
+        "version_id": "5Tp7kdU0",
+        "loader": "Fabric",
+        "game_version": "1.21.11",
+        "filename": "lambdynamiclights-4.9.1+1.21.11.jar",
+        "url": "https://cdn.modrinth.com/data/yBW8D80W/versions/5Tp7kdU0/lambdynamiclights-4.9.1%2B1.21.11.jar"
+    },
+    {
+        "name": "v3.1.4 1.21.11",
+        "project_id": "yjvKidNM",
+        "version_id": "uwqfMaXv",
+        "loader": "Fabric",
+        "game_version": "1.21.11",
+        "filename": "lighty-fabric-3.1.3+1.21.11.jar",
+        "url": "https://cdn.modrinth.com/data/yjvKidNM/versions/uwqfMaXv/lighty-fabric-3.1.4%2B1.21.11.jar"
+    },
+    {
+        "name": "Litematica 1.21.11-0.26.5",
+        "project_id": "bEpr0Arc",
+        "version_id": "b1ETiWxS",
+        "loader": "Fabric",
+        "game_version": "1.21.11",
+        "filename": "litematica-fabric-1.21.11-0.26.5.jar",
+        "url": "https://cdn.modrinth.com/data/bEpr0Arc/versions/b1ETiWxS/litematica-fabric-1.21.11-0.26.5.jar"
+    },
+    {
+        "name": "Litematica Printer 1.21.11-3.2.1B",
+        "project_id": "3llatzyE",
+        "version_id": "P4FcgXko",
+        "loader": "Fabric",
+        "game_version": "1.21.11",
+        "filename": "litematica-printer-1.21.11-3.2.1B.jar",
+        "url": "https://cdn.modrinth.com/data/3llatzyE/versions/P4FcgXko/litematica-printer-1.21.11-3.2.1B.jar"
+    },
+    {
+        "name": "Lithium 0.21.4 for Fabric",
+        "project_id": "gvQqBUqZ",
+        "version_id": "Ow7wA0kG",
+        "loader": "Fabric",
+        "game_version": "1.21.11",
+        "filename": "lithium-fabric-0.21.4+mc1.21.11.jar",
+        "url": "https://cdn.modrinth.com/data/gvQqBUqZ/versions/Ow7wA0kG/lithium-fabric-0.21.4%2Bmc1.21.11.jar"
+    },
+    {
+        "name": "MaLiLib 1.21.11-0.27.9",
+        "project_id": "GcWjdA9I",
+        "version_id": "UW6wRWbH",
+        "loader": "Fabric",
+        "game_version": "1.21.11",
+        "filename": "malilib-fabric-1.21.11-0.27.9.jar",
+        "url": "https://cdn.modrinth.com/data/GcWjdA9I/versions/UW6wRWbH/malilib-fabric-1.21.11-0.27.9.jar"
+    },
+    {
+        "name": "Marlow's Crystal Optimizer 1.1.0",
+        "project_id": "ozpC8eDC",
+        "version_id": "YKWJ63xQ",
+        "loader": "Fabric",
+        "game_version": "1.21.11",
+        "filename": "Marlow Crystal Optimizer.jar",
+        "url": "https://cdn.modrinth.com/data/ozpC8eDC/versions/YKWJ63xQ/Marlow%20Crystal%20Optimizer.jar"
+    },
+    {
+        "name": "MidnightLib 1.9.3 - Fabric 1.21.11",
+        "project_id": "codAaoxh",
+        "version_id": "jkodor79",
+        "loader": "Fabric",
+        "game_version": "1.21.11",
+        "filename": "midnightlib-fabric-1.9.3+1.21.11.jar",
+        "url": "https://cdn.modrinth.com/data/codAaoxh/versions/jkodor79/midnightlib-fabric-1.9.3%2B1.21.11.jar"
+    },
+    {
+        "name": "v17.0.0 for 1.21.11",
+        "project_id": "mOgUt4GM",
+        "version_id": "Tyk71iSw",
+        "loader": "Fabric",
+        "game_version": "1.21.11",
+        "filename": "modmenu-17.0.0.jar",
+        "url": "https://cdn.modrinth.com/data/mOgUt4GM/versions/Tyk71iSw/modmenu-17.0.0.jar"
+    },
+    {
+        "name": "[1.21.11 Fabric] Mouse Tweaks 2.30",
+        "project_id": "aC3cM3Vq",
+        "version_id": "i1duwnJl",
+        "loader": "Fabric",
+        "game_version": "1.21.11",
+        "filename": "MouseTweaks-fabric-mc1.21.11-2.30.jar",
+        "url": "https://cdn.modrinth.com/data/aC3cM3Vq/versions/i1duwnJl/MouseTweaks-fabric-mc1.21.11-2.30.jar"
+    },
+    {
+        "name": "Noxesium 3.0.0",
+        "project_id": "Kw7Sm3Xf",
+        "version_id": "mn8Ev2Im",
+        "loader": "Fabric",
+        "game_version": "1.21.11",
+        "filename": "noxesium-fabric-3.0.0.jar",
+        "url": "https://cdn.modrinth.com/data/Kw7Sm3Xf/versions/mn8Ev2Im/noxesium-fabric-3.0.0.jar"
+    },
+    {
+        "name": "[FABRIC] [1.21.11] PuzzlesLib v21.11.12",
+        "project_id": "QAGBst4M",
+        "version_id": "owXZpJai",
+        "loader": "Fabric",
+        "game_version": "1.21.11",
+        "filename": "PuzzlesLib-v21.11.12-mc1.21.11-Fabric.jar",
+        "url": "https://cdn.modrinth.com/data/QAGBst4M/versions/owXZpJai/PuzzlesLib-v21.11.12-mc1.21.11-Fabric.jar"
+    },
+    {
+        "name": "[Fabric] Reese's Sodium Options 2.0.3",
+        "project_id": "Bh37bMuy",
+        "version_id": "yIgAFMna",
+        "loader": "Fabric",
+        "game_version": "1.21.11",
+        "filename": "reeses-sodium-options-fabric-2.0.3+mc1.21.11.jar",
+        "url": "https://cdn.modrinth.com/data/Bh37bMuy/versions/yIgAFMna/reeses-sodium-options-fabric-2.0.3%2Bmc1.21.11.jar"
+    },
+    {
+        "name": "[Fabric] Resourceful Lib 3.11.0",
+        "project_id": "G1hIVOrD",
+        "version_id": "Q2Njmve7",
+        "loader": "Fabric",
+        "game_version": "1.21.11",
+        "filename": "ResourcefulLib-fabric-1.21.11-3.11.0.jar",
+        "url": "https://cdn.modrinth.com/data/G1hIVOrD/versions/Q2Njmve7/ResourcefulLib-fabric-1.21.11-3.11.0.jar"
+    },
+    {
+        "name": "0.1.6+fabric.c25518a",
+        "project_id": "Ps1zyz6x",
+        "version_id": "PV9KcrYQ",
+        "loader": "Fabric",
+        "game_version": "1.21.9",
+        "filename": "ScalableLux-0.1.6+fabric.c25518a-all.jar",
+        "url": "https://cdn.modrinth.com/data/Ps1zyz6x/versions/PV9KcrYQ/ScalableLux-0.1.6%2Bfabric.c25518a-all.jar"
+    },
+    {
+        "name": "SmoothBoot+1.21.11-1.0.0",
+        "project_id": "gk3B4zrk",
+        "version_id": "gqFyBDHt",
+        "loader": "Fabric",
+        "game_version": "1.21.11",
+        "filename": "SmoothBoot+1.21.11-1.0.0.jar",
+        "url": "https://cdn.modrinth.com/data/gk3B4zrk/versions/gqFyBDHt/SmoothBoot%2B1.21.11-1.0.0.jar"
+    },
+    {
+        "name": "[Fabric] Sodium Extra 0.8.3 for Minecraft 1.21.11",
+        "project_id": "PtjYWJkn",
+        "version_id": "yqY1efrC",
+        "loader": "Fabric",
+        "game_version": "1.21.11",
+        "filename": "sodium-extra-fabric-0.8.3+mc1.21.11.jar",
+        "url": "https://cdn.modrinth.com/data/PtjYWJkn/versions/yqY1efrC/sodium-extra-fabric-0.8.3%2Bmc1.21.11.jar"
+    },
+    {
+        "name": "Sodium 0.8.12-alpha.3 for Fabric 1.21.1",
+        "project_id": "AANobbMI",
+        "version_id": "8kVO74iE",
+        "loader": "Fabric",
+        "game_version": "1.21.1",
+        "filename": "sodium-fabric-0.8.12-alpha.3+mc1.21.1.jar",
+        "url": "https://cdn.modrinth.com/data/AANobbMI/versions/8kVO74iE/sodium-fabric-0.8.12-alpha.3%2Bmc1.21.1.jar"
+    },
+    {
+        "name": "1.10.170 (Fabric 1.21.11)",
+        "project_id": "l6YH9Als",
+        "version_id": "gonLOAU1",
+        "loader": "Fabric",
+        "game_version": "1.21.11",
+        "filename": "spark-1.10.170-fabric.jar",
+        "url": "https://cdn.modrinth.com/data/l6YH9Als/versions/gonLOAU1/spark-1.10.170-fabric.jar"
+    },
+    {
+        "name": "Syncac (Synchronized Auto Clicker) 1.3+1.21.11",
+        "project_id": "2tqIzH5v",
+        "version_id": "jX3sZjWr",
+        "loader": "Fabric",
+        "game_version": "1.21.11",
+        "filename": "syncac-1.3+1.21.11.jar",
+        "url": "https://cdn.modrinth.com/data/2tqIzH5v/versions/jX3sZjWr/syncac-1.3%2B1.21.11.jar"
+    },
+    {
+        "name": "Syncmatica 1.21.11-0.3.18",
+        "project_id": "bfneejKo",
+        "version_id": "q8q5Xv6K",
+        "loader": "Fabric",
+        "game_version": "1.21.11",
+        "filename": "syncmatica-fabric-1.21.11-0.3.18.jar",
+        "url": "https://cdn.modrinth.com/data/bfneejKo/versions/q8q5Xv6K/syncmatica-fabric-1.21.11-0.3.18.jar"
+    },
+    {
+        "name": "ToadLib 1.4.4",
+        "project_id": "CYQ7VYrM",
+        "version_id": "Oqc7ToJf",
+        "loader": "Fabric",
+        "game_version": "1.21.11",
+        "filename": "ToadLib-1.4.4-1.21.11.jar",
+        "url": "https://cdn.modrinth.com/data/CYQ7VYrM/versions/Oqc7ToJf/ToadLib-1.4.4-1.21.11.jar"
+    },
+    {
+        "name": "1.11.2 - 1.21.11",
+        "project_id": "T9R7YTnA",
+        "version_id": "eRAPu7Ge",
+        "loader": "Fabric",
+        "game_version": "1.21.11",
+        "filename": "totemcounter-1.11.2+mc1.21.11.jar",
+        "url": "https://cdn.modrinth.com/data/T9R7YTnA/versions/eRAPu7Ge/totemcounter-1.11.2%2Bmc1.21.11.jar"
+    },
+    {
+        "name": "Tweakeroo 1.21.11-0.27.7",
+        "project_id": "t5wuYk45",
+        "version_id": "JavgNk3E",
+        "loader": "Fabric",
+        "game_version": "1.21.11",
+        "filename": "tweakeroo-fabric-1.21.11-0.27.7.jar",
+        "url": "https://cdn.modrinth.com/data/t5wuYk45/versions/JavgNk3E/tweakeroo-fabric-1.21.11-0.27.7.jar"
+    },
+    {
+        "name": "1.10.2+1.21.11",
+        "project_id": "Y8uFrUil",
+        "version_id": "t9ZJ7RPT",
+        "loader": "Fabric",
+        "game_version": "1.21.11",
+        "filename": "ukulib-1.10.2+1.21.11.jar",
+        "url": "https://cdn.modrinth.com/data/Y8uFrUil/versions/t9ZJ7RPT/ukulib-1.10.2%2B1.21.11.jar"
+    },
+    {
+        "name": "Simple Voice Chat 1.21.11-2.6.17",
+        "project_id": "9eGKb6K1",
+        "version_id": "ukcC8F72",
+        "loader": "Fabric",
+        "game_version": "1.21.11",
+        "filename": "voicechat-fabric-1.21.11-2.6.17.jar",
+        "url": "https://cdn.modrinth.com/data/9eGKb6K1/versions/ukcC8F72/voicechat-fabric-1.21.11-2.6.17.jar"
+    },
+    {
+        "name": "25.3.12",
+        "project_id": "1bokaNcj",
+        "version_id": "q5DQinHS",
+        "loader": "Fabric",
+        "game_version": "1.21.11",
+        "filename": "xaerominimap-fabric-1.21.11-25.3.12.jar",
+        "url": "https://cdn.modrinth.com/data/1bokaNcj/versions/q5DQinHS/xaerominimap-fabric-1.21.11-25.3.12.jar"
+    },
+    {
+        "name": "1.40.16",
+        "project_id": "NcUtCpym",
+        "version_id": "vOQ76ooY",
+        "loader": "Fabric",
+        "game_version": "1.21.11",
+        "filename": "xaeroworldmap-fabric-1.21.11-1.40.16.jar",
+        "url": "https://cdn.modrinth.com/data/NcUtCpym/versions/vOQ76ooY/xaeroworldmap-fabric-1.21.11-1.40.16.jar"
+    },
+    {
+        "name": "v2.0.0-Fabric-1.21",
+        "project_id": "T6oqPfxF",
+        "version_id": "XIx4enCh",
+        "loader": "Fabric",
+        "game_version": "1.21",
+        "filename": "XaeroZoomout-Fabric-1.21-2.0.0.jar",
+        "url": "https://cdn.modrinth.com/data/T6oqPfxF/versions/XIx4enCh/XaeroZoomout-Fabric-1.21-2.0.0.jar"
+    },
+    {
+        "name": "3.8.2 for fabric 1.21.11",
+        "project_id": "1eAoo2KR",
+        "version_id": "pHWDw3Vc",
+        "loader": "Fabric",
+        "game_version": "1.21.11",
+        "filename": "yet_another_config_lib_v3-3.8.2+1.21.11-fabric.jar",
+        "url": "https://cdn.modrinth.com/data/1eAoo2KR/versions/pHWDw3Vc/yet_another_config_lib_v3-3.8.2%2B1.21.11-fabric.jar"
+    },
+    {
+        "name": "Zoomify 2.15.2+1.21.11",
+        "project_id": "w7ThoJFB",
+        "version_id": "gI5KZI8V",
+        "loader": "Fabric",
+        "game_version": "1.21.11",
+        "filename": "zoomify-2.15.2+1.21.11.jar",
+        "url": "https://cdn.modrinth.com/data/w7ThoJFB/versions/gI5KZI8V/zoomify-2.15.2%2B1.21.11.jar"
+    }
+]

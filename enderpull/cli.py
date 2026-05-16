@@ -11,6 +11,8 @@ if sys.platform == "win32":
 from .api_modrinth import ModrinthAPI
 from .downloader import download_file
 from .updater import update_mods
+from .modpack import export_modpack, import_modpack
+from .cleaner import self_clean
 from .config import DEFAULT_MODS_DIR
 from .exceptions import AntigravityError
 
@@ -73,6 +75,19 @@ def main():
     update_parser = subparsers.add_parser("update", help="Automatically update all installed mods")
     update_parser.add_argument("--output-dir", help="Override the default output directory")
     
+    # 'export' command
+    export_parser = subparsers.add_parser("export", help="Export currently installed mods to a JSON modpack file")
+    export_parser.add_argument("filename", help="The name of the JSON file (e.g., modpack.json)")
+    export_parser.add_argument("--output-dir", help="Override the default mods directory")
+
+    # 'import' command
+    import_parser = subparsers.add_parser("import", help="Import and download mods from a JSON modpack file")
+    import_parser.add_argument("filename", help="The name of the JSON file (e.g., modpack.json)")
+    import_parser.add_argument("--output-dir", help="Override the default mods directory")
+    
+    # 'self-clean' command
+    subparsers.add_parser("self-clean", help="Delete unnecessary source files from the installation directory")
+    
     args = parser.parse_args()
     
     if args.command == "get":
@@ -80,3 +95,11 @@ def main():
     elif args.command == "update":
         output_dir = Path(args.output_dir) if args.output_dir else DEFAULT_MODS_DIR
         update_mods(output_dir)
+    elif args.command == "export":
+        output_dir = Path(args.output_dir) if args.output_dir else DEFAULT_MODS_DIR
+        export_modpack(args.filename, output_dir)
+    elif args.command == "import":
+        output_dir = Path(args.output_dir) if args.output_dir else DEFAULT_MODS_DIR
+        import_modpack(args.filename, output_dir)
+    elif args.command == "self-clean":
+        self_clean()
