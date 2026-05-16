@@ -17,7 +17,7 @@ EnderPull is a professional-grade command-line interface inspired by tools like 
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/YOUR_USERNAME/enderpull.git
+   git clone https://github.com/cid-moosa/enderpull.git
    cd enderpull
    ```
 2. Run the 1-click installer for your operating system:
