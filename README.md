@@ -16,28 +16,49 @@ EnderPull is a professional-grade command-line interface inspired by tools like 
 - **Rich UI Terminal Feedback**: Enjoy a beautiful terminal experience complete with determinate progress bars, animated status spinners, and beautifully formatted tables detailing your environment.
 - **Cross-Platform**: Automatically resolves the `%appdata%/.minecraft/mods` or `~/.minecraft/mods` paths based on your host OS. Automatically cleans up cross-platform installer scripts (removing `.sh` files on Windows and `.bat` files on Linux/macOS).
 
-## 🚀 Installation
+## 🚀 Setup & Launching Guide
 
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/cid-moosa/enderpull.git
-   cd enderpull
-   ```
-2. Run the 1-click installer for your operating system:
+> [!IMPORTANT]
+> ### 📥 1. First-Time Installation (1-Click Installer)
+>
+> Clone the repository and run the platform-appropriate installer. This will automatically set up a Python virtual environment, download all dependencies, register the `mc-dl` command, and perform platform-specific cleanups (e.g. removing unused shell or batch files).
+>
+> **Step A: Clone and Enter Directory**
+> ```bash
+> git clone https://github.com/cid-moosa/enderpull.git
+> cd enderpull
+> ```
+>
+> **Step B: Run the Installer**
+> - **Windows (PowerShell, Cmd, or Explorer):**
+>   Double-click **`install.bat`** in file explorer, or run:
+>   ```powershell
+>   .\install.bat
+>   ```
+> - **macOS / Linux (Terminal):**
+>   Run:
+>   ```bash
+>   bash install.sh
+>   ```
 
-   **On Windows:**
-   Simply double-click the `install.bat` file, or run it in your terminal:
-   ```powershell
-   .\install.bat
-   ```
+> [!TIP]
+> ### ⚡ 2. How to Launch EnderPull (Subsequent Runs)
+>
+> Once installed, you **do not** run the installer again (in fact, it cleans itself up!). Simply run the launcher script whenever you want to work with EnderPull:
+>
+> - **On Windows:**
+>   Double-click **`launch.bat`** in file explorer, or run:
+>   ```powershell
+>   .\launch.bat
+>   ```
+> - **On macOS / Linux:**
+>   Run:
+>   ```bash
+>   ./launch.sh
+>   ```
+>
+> *This automatically opens a dedicated shell with the virtual environment activated, displays the help menu, and leaves the terminal open and ready for your `mc-dl` commands.*
 
-   **On macOS/Linux:**
-   Run the installation script in your terminal:
-   ```bash
-   bash install.sh
-   ```
-
-That's it! The script will automatically create a virtual environment, install EnderPull, perform a platform-specific file cleanup, and register the `mc-dl` command so you can use it immediately.
 
 ## 📖 Command Reference
 
