@@ -51,6 +51,7 @@ pip install -e . >nul 2>&1
 :: Cleanup phase
 if exist requirements.txt del requirements.txt >nul 2>&1
 if exist install.sh del install.sh >nul 2>&1
+if exist launch.sh del launch.sh >nul 2>&1
 if exist .gitignore del .gitignore >nul 2>&1
 if exist README.md del README.md >nul 2>&1
 

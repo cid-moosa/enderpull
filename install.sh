@@ -39,7 +39,7 @@ echo -n -e "[ ${CYAN}WORKING${RESET} ] 📥  Downloading dependencies and cachin
 spinner $!
 echo -e "\r[ ${GREEN}SUCCESS${RESET} ] 📥  Downloading dependencies and caching files... "
 
-rm -f requirements.txt README.md .gitignore
+rm -f requirements.txt README.md .gitignore install.bat launch.bat
 
 sleep 1
 clear
