@@ -1,0 +1,22 @@
+# Environments
+venv/
+env/
+.env
+
+# Cache
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# IDEs
+.vscode/
+.idea/
+
+# Minecraft Mods
+*.jar
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
