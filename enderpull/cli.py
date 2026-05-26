@@ -2,6 +2,8 @@ import argparse
 import sys
 from pathlib import Path
 from rich.console import Console
+from rich.table import Table
+from rich import box
 
 # Force UTF-8 output on Windows for emoji support
 if sys.platform == "win32":
@@ -16,6 +18,7 @@ from .cleaner import self_clean
 from .config import DEFAULT_MODS_DIR, DEFAULT_MINECRAFT_DIR
 from .exceptions import AntigravityError
 from .fabric_manager import fabric_update, fabric_upgrade, fabric_update_if_configured
+from .local_manager import list_installed_mods, search_local_mods, remove_local_mod
 
 from rich_argparse import RichHelpFormatter
 
@@ -26,8 +29,8 @@ console = Console()
 # Command handlers
 # ---------------------------------------------------------------------------
 
-def get_command(args):
-    """Handles the 'get' command."""
+def install_command(args):
+    """Handles the 'install' command."""
     api = ModrinthAPI()
 
     output_dir = Path(args.output_dir) if args.output_dir else DEFAULT_MODS_DIR
@@ -64,6 +67,114 @@ def get_command(args):
     except AntigravityError as e:
         console.print(f"[bold red]Download failed:[/bold red] {e}")
         sys.exit(1)
+
+
+def search_command(args):
+    """Handles the 'search' command."""
+    if args.local:
+        # Local search
+        mods_dir = Path(args.mods_dir) if args.mods_dir else DEFAULT_MODS_DIR
+        with console.status(f"[bold cyan]Searching locally for '{args.query}'..."):
+            matches = search_local_mods(args.query, mods_dir)
+            
+        if not matches:
+            console.print(f"[yellow]No local mods found matching '{args.query}'.[/yellow]")
+            return
+            
+        table = Table(box=box.ROUNDED, show_header=True, header_style="bold cyan")
+        table.add_column("Mod Name")
+        table.add_column("File Name")
+        table.add_column("Version")
+        table.add_column("Loader")
+        
+        for mod in matches:
+            loader_style = "[bold magenta]Fabric[/bold magenta]" if mod["loader"] == "Fabric" else f"[yellow]{mod['loader']}[/yellow]"
+            table.add_row(
+                mod["name"],
+                mod["filename"],
+                mod["version"],
+                loader_style
+            )
+            
+        console.print(f"\n[bold green]Local matches for '{args.query}' ({len(matches)}):[/bold green]")
+        console.print(table)
+    else:
+        # Remote Modrinth search
+        api = ModrinthAPI()
+        with console.status(f"[bold cyan]Searching Modrinth for '{args.query}'..."):
+            try:
+                hits = api.search_projects(args.query, limit=args.limit)
+            except AntigravityError as e:
+                console.print(f"[bold red]Error:[/bold red] {e}")
+                sys.exit(1)
+                
+        if not hits:
+            console.print(f"[yellow]No Modrinth projects found matching '{args.query}'.[/yellow]")
+            return
+            
+        table = Table(box=box.ROUNDED, show_header=True, header_style="bold cyan")
+        table.add_column("Title")
+        table.add_column("Slug")
+        table.add_column("Downloads")
+        table.add_column("Loaders")
+        table.add_column("Description")
+        
+        for hit in hits:
+            loaders = ", ".join([l.capitalize() for l in hit.get("categories", []) if l in ["fabric", "forge", "neoforge", "quilt"]])
+            downloads = f"{hit.get('downloads', 0):,}"
+            table.add_row(
+                hit.get("title", "Unknown"),
+                f"[yellow]{hit.get('slug', '')}[/yellow]",
+                downloads,
+                loaders,
+                hit.get("description", "").strip()
+            )
+            
+        console.print(f"\n[bold green]Modrinth matches for '{args.query}':[/bold green]")
+        console.print(table)
+
+
+def remove_command(args):
+    """Handles the 'remove' command."""
+    mods_dir = Path(args.mods_dir) if args.mods_dir else DEFAULT_MODS_DIR
+    with console.status(f"[bold cyan]Uninstalling '{args.target}'..."):
+        deleted = remove_local_mod(args.target, mods_dir)
+        
+    if not deleted:
+        console.print(f"[bold red]Error:[/bold red] No local mods matching '{args.target}' were found or successfully deleted.")
+        sys.exit(1)
+        
+    for mod in deleted:
+        console.print(f"[bold green]✓ Successfully removed[/bold green] [yellow]{mod['name']}[/yellow] ({mod['filename']})")
+
+
+def list_command(args):
+    """Handles the 'list' command or '--list' flag."""
+    mods_dir = Path(args.mods_dir) if hasattr(args, "mods_dir") and args.mods_dir else DEFAULT_MODS_DIR
+    with console.status("[bold cyan]Scanning installed mods..."):
+        mods = list_installed_mods(mods_dir)
+    
+    if not mods:
+        console.print("[yellow]No mods found in your mods directory.[/yellow]")
+        return
+        
+    table = Table(box=box.ROUNDED, show_header=True, header_style="bold cyan")
+    table.add_column("Mod Name")
+    table.add_column("File Name")
+    table.add_column("Version")
+    table.add_column("Loader")
+    
+    for mod in mods:
+        loader_style = "[bold magenta]Fabric[/bold magenta]" if mod["loader"] == "Fabric" else f"[yellow]{mod['loader']}[/yellow]"
+        table.add_row(
+            mod["name"],
+            mod["filename"],
+            mod["version"],
+            loader_style
+        )
+        
+    console.print(f"\n[bold green]Installed Mods ({len(mods)}):[/bold green]")
+    console.print(table)
 
 
 def update_command(args):
@@ -196,17 +307,47 @@ def main():
         formatter_class=RichHelpFormatter,
     )
 
-    subparsers = parser.add_subparsers(dest="command", required=True, help="Subcommands")
+    parser.add_argument("--list", action="store_true", help="List all installed mods and exit")
 
-    # --- get ---
-    get_parser = subparsers.add_parser(
-        "get", help="Download a mod by name or slug", formatter_class=RichHelpFormatter
+    subparsers = parser.add_subparsers(dest="command", help="Subcommands")
+
+    # --- install ---
+    install_parser = subparsers.add_parser(
+        "install", help="Download and install a mod by name or slug", formatter_class=RichHelpFormatter
     )
-    get_parser.add_argument("target", help="The mod name or slug (e.g., 'sodium')")
-    get_parser.add_argument("--loader", help="Filter by mod loader (e.g., fabric, forge, neoforge, quilt)")
-    get_parser.add_argument("--mc-version", help="Filter by Minecraft version (e.g., 1.21.1)")
-    get_parser.add_argument("--latest", action="store_true", help="Download the latest version (default behavior)")
-    get_parser.add_argument("--output-dir", help="Override the default output directory")
+    install_parser.add_argument("target", help="The mod name or slug (e.g., 'sodium')")
+    install_parser.add_argument("--loader", help="Filter by mod loader (e.g., fabric, forge, neoforge, quilt)")
+    install_parser.add_argument("--mc-version", help="Filter by Minecraft version (e.g., 1.21.1)")
+    install_parser.add_argument("--latest", action="store_true", help="Download the latest version (default behavior)")
+    install_parser.add_argument("--output-dir", help="Override the default output directory")
+
+    # --- search ---
+    search_parser = subparsers.add_parser(
+        "search",
+        help="Search for mods online or locally",
+        formatter_class=RichHelpFormatter,
+    )
+    search_parser.add_argument("query", help="The search query (e.g., 'sodium')")
+    search_parser.add_argument("-l", "--local", action="store_true", help="Search locally in your mods folder instead of Modrinth")
+    search_parser.add_argument("--limit", type=int, default=10, help="Limit the number of online search results (default: 10)")
+    search_parser.add_argument("--mods-dir", help="Override the mods directory for local search")
+
+    # --- remove ---
+    remove_parser = subparsers.add_parser(
+        "remove",
+        help="Uninstall/delete a local mod",
+        formatter_class=RichHelpFormatter,
+    )
+    remove_parser.add_argument("target", help="The name, id, or filename of the mod to remove")
+    remove_parser.add_argument("--mods-dir", help="Override the default mods directory")
+
+    # --- list ---
+    list_parser = subparsers.add_parser(
+        "list",
+        help="List all locally installed mods",
+        formatter_class=RichHelpFormatter,
+    )
+    list_parser.add_argument("--mods-dir", help="Override the default mods directory")
 
     # --- update ---
     update_parser = subparsers.add_parser(
@@ -258,8 +399,22 @@ def main():
     # -----------------------------------------------------------------------
     args = parser.parse_args()
 
-    if args.command == "get":
-        get_command(args)
+    if args.list:
+        list_command(args)
+        sys.exit(0)
+
+    if not args.command:
+        parser.print_help()
+        sys.exit(0)
+
+    if args.command == "install":
+        install_command(args)
+    elif args.command == "search":
+        search_command(args)
+    elif args.command == "remove":
+        remove_command(args)
+    elif args.command == "list":
+        list_command(args)
     elif args.command == "update":
         update_command(args)
     elif args.command == "export":

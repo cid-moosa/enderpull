@@ -124,3 +124,12 @@ class ModrinthAPI:
         payload = {"hashes": hashes, "algorithm": "sha1"}
         resp = self._request("POST", url, json=payload)
         return resp.json()
+
+    def search_projects(self, query: str, limit: int = 10) -> list:
+        """
+        Searches Modrinth projects by query.
+        """
+        url = f"{self.BASE_URL}/search"
+        params = {"query": query, "limit": limit}
+        resp = self._request("GET", url, params=params)
+        return resp.json().get("hits", [])
