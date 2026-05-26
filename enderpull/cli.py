@@ -92,6 +92,13 @@ def fabric_upgrade_command(args):
     fabric_upgrade(args.new_mc_version, mods_dir)
 
 
+def clear_command(args):
+    """Clears the terminal screen."""
+    import os
+    os.system("cls" if os.name == "nt" else "clear")
+
+
+
 # ---------------------------------------------------------------------------
 # Parser construction
 # ---------------------------------------------------------------------------
@@ -238,6 +245,13 @@ def main():
         formatter_class=RichHelpFormatter,
     )
 
+    # --- clear ---
+    subparsers.add_parser(
+        "clear",
+        help="Clear the terminal screen",
+        formatter_class=RichHelpFormatter,
+    )
+
     # --- fabric (nested subcommands) ---
     _build_fabric_parser(subparsers)
 
@@ -256,6 +270,8 @@ def main():
         import_modpack(args.filename, output_dir)
     elif args.command == "self-clean":
         self_clean()
+    elif args.command == "clear":
+        clear_command(args)
     elif args.command == "fabric":
         if args.fabric_command == "update":
             fabric_update_command(args)
