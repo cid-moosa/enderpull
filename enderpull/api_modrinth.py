@@ -1,5 +1,6 @@
 import json
 import requests
+from requests.exceptions import ConnectionError as RequestsConnectionError, HTTPError
 from .exceptions import ModNotFoundError, VersionNotFoundError, ApiError
 
 class ModrinthAPI:
@@ -12,29 +13,60 @@ class ModrinthAPI:
             "User-Agent": "enderpull/0.1.0 (CLI Mod Downloader)"
         })
 
+    # ------------------------------------------------------------------
+    # Network helper
+    # ------------------------------------------------------------------
+
+    def _request(self, method: str, url: str, **kwargs) -> requests.Response:
+        """
+        Central HTTP dispatcher that converts low-level network failures into
+        clean typed exceptions instead of raw urllib3 tracebacks.
+
+        Raises:
+            ApiError         – no internet / DNS failure, or non-404 HTTP errors.
+            ModNotFoundError – HTTP 404 (project or version does not exist).
+        """
+        try:
+            resp = self.session.request(method, url, **kwargs)
+            resp.raise_for_status()
+            return resp
+        except RequestsConnectionError:
+            raise ApiError(
+                "Could not connect to the Modrinth API. "
+                "Please check your internet connection."
+            )
+        except HTTPError as exc:
+            status = exc.response.status_code if exc.response is not None else "unknown"
+            if status == 404:
+                raise ModNotFoundError(
+                    f"API Error: 404 Not Found for {url}. "
+                    "The mod or version may not exist on Modrinth."
+                )
+            raise ApiError(
+                f"Modrinth API Error: {status} — {exc}."
+            )
+
     def resolve_project_slug(self, query: str) -> str:
         """
         Attempts to resolve a query to a project slug.
         First tries exact match, then falls back to search.
         """
-        # Try direct hit
+        # Try direct hit — a 404 means no exact match; fall through to search.
         url = f"{self.BASE_URL}/project/{query}"
-        resp = self.session.get(url)
-        if resp.status_code == 200:
+        try:
+            resp = self._request("GET", url)
             return resp.json().get("slug", query)
-        
+        except ModNotFoundError:
+            pass  # Not an exact slug — try the search endpoint below.
+
         # Fallback to search
         search_url = f"{self.BASE_URL}/search"
-        params = {
-            "query": query,
-            "limit": 1
-        }
-        resp = self.session.get(search_url, params=params)
-        if resp.status_code == 200:
-            hits = resp.json().get("hits", [])
-            if hits:
-                return hits[0]["slug"]
-            
+        params = {"query": query, "limit": 1}
+        resp = self._request("GET", search_url, params=params)
+        hits = resp.json().get("hits", [])
+        if hits:
+            return hits[0]["slug"]
+
         raise ModNotFoundError(f"Could not find any Modrinth project matching '{query}'.")
 
     def get_version(self, slug: str, loader: str | list[str] = None, mc_version: str | list[str] = None):
@@ -42,7 +74,7 @@ class ModrinthAPI:
         Fetches the latest matching version for the given project, loader, and mc_version.
         """
         url = f"{self.BASE_URL}/project/{slug}/version"
-        
+
         params = {}
         if loader:
             loaders_list = [loader.lower()] if isinstance(loader, str) else [l.lower() for l in loader]
@@ -50,13 +82,8 @@ class ModrinthAPI:
         if mc_version:
             versions_list = [mc_version] if isinstance(mc_version, str) else mc_version
             params["game_versions"] = json.dumps(versions_list)
-            
-        resp = self.session.get(url, params=params)
-        
-        if resp.status_code != 200:
-            if resp.status_code == 404:
-                raise ModNotFoundError(f"Project '{slug}' not found when checking versions.")
-            raise ApiError(f"Modrinth API returned status {resp.status_code}: {resp.text}")
+
+        resp = self._request("GET", url, params=params)
             
         versions = resp.json()
         if not versions:
@@ -94,11 +121,6 @@ class ModrinthAPI:
         if not hashes:
             return {}
         url = f"{self.BASE_URL}/version_files"
-        payload = {
-            "hashes": hashes,
-            "algorithm": "sha1"
-        }
-        resp = self.session.post(url, json=payload)
-        if resp.status_code != 200:
-            raise ApiError(f"Modrinth API returned status {resp.status_code} during hash lookup: {resp.text}")
+        payload = {"hashes": hashes, "algorithm": "sha1"}
+        resp = self._request("POST", url, json=payload)
         return resp.json()
